@@ -23,6 +23,11 @@ ion-icon {
     width: 100%;
   }
 
+  .color-black {
+    color: #000;
+    font-weight: bold;
+  }
+
   .normal {
     background-color: #ffffff;
   }
@@ -43,9 +48,11 @@ ion-icon {
     padding: 20px 0px;
     margin: 10px 0px;
   }
+
   .status {
     background-color: #dcdcdc;
   }
+
   .footer {
     align-items: center;
     height: 80px;

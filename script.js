@@ -55,8 +55,8 @@ function writeMensagemHTML(mensagens) {
     if (typeMessage === "message" || typeMessage === "status") {
       ulMensagem.innerHTML += `
             <div class="mensagem ${typeOfMessage(typeMessage)}">
-                <p> <span> (${mensagens[i].time})</span> <strong>${mensagens[i].from
-        }</strong> para <strong>${mensagens[i].to}</strong> : ${mensagens[i].text
+                <p> <span> (${mensagens[i].time})</span> <strong class="color-black">${mensagens[i].from
+        }</strong> para <strong class="color-black">${mensagens[i].to}</strong> : ${mensagens[i].text
         } </p>
             </div>`;
     }
