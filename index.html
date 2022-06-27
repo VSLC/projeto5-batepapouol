@@ -18,12 +18,16 @@
     <div class="mensagens">
     </div>
     <div class="footer">
-        <form action="">
-            <input class="margin" type="text" placeholder="Escreva aqui...">
-        </form>
-        <ion-icon class="margin" name="paper-plane-outline"></ion-icon>
+        <div class="mensagem">
+            <form action="">
+                <input class="margin" type="text" placeholder="Escreva aqui..." onkeydown="entrarComMensagem(event)">
+            </form>
+        </div>
+        <ion-icon class="margin" name="paper-plane-outline" onclick="enviarMensagem(this)"></ion-icon>
     </div>
-    <script src="/script/script.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
