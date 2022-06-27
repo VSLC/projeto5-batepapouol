@@ -52,43 +52,28 @@ function writeMensagemHTML(mensagens) {
 
   for (let i = 0; i < mensagens.length; i++) {
     let typeMessage = mensagens[i].type;
-    if (
-      typeMessage === "private_message" &&
-      (mensagens[i].to === nome || mensagens[i].from === nome)
-    ) {
-      ulMensagem.innerHTML += `
-            <div class="mensagem ${typeOfMessage(typeMessage)}">
-                <p> <span> (${mensagens[i].time})</span> <strong>${
-        mensagens[i].from
-      }</strong> (Reservadamente) para <strong>${mensagens[i].to}</strong> : ${
-        mensagens[i].text
-      } </p>
-            </div>`;
-    }
     if (typeMessage === "message" || typeMessage === "status") {
       ulMensagem.innerHTML += `
             <div class="mensagem ${typeOfMessage(typeMessage)}">
-                <p> <span> (${mensagens[i].time})</span> <strong>${
-        mensagens[i].from
-      }</strong> para <strong>${mensagens[i].to}</strong> : ${
-        mensagens[i].text
-      } </p>
+                <p> <span> (${mensagens[i].time})</span> <strong>${mensagens[i].from
+        }</strong> para <strong>${mensagens[i].to}</strong> : ${mensagens[i].text
+        } </p>
             </div>`;
     }
   }
 }
 
-function entrarComMensagem(event){
+function entrarComMensagem(event) {
   const tecla = event.which;
-  if (tecla === 13){
+  if (tecla === 13) {
     document.querySelector(".footer ion-icon").click();
   }
 }
 
-function enviarMensagem(){
+function enviarMensagem() {
   let envioFormulario = document.querySelector(".mensagem input").value;
-  if (envioFormulario !== ""){
-    let enviar = axios.post("https://mock-api.driven.com.br/api/v6/uol/messages",{
+  if (envioFormulario !== "") {
+    let enviar = axios.post("https://mock-api.driven.com.br/api/v6/uol/messages", {
       from: `${nome}`,
       to: "Todos",
       text: `${envioFormulario}`,
@@ -98,12 +83,12 @@ function enviarMensagem(){
       response.data;
       pesquisaMensagem();
     })
-    document.querySelector("input") = "";
+    document.querySelector(".footer input") = "";
     enviar.catch(mensagemErro());
   }
 }
 
-function mensagemErro(){
+function mensagemErro() {
   alert("Usuário não logado");
   window.location.reload();
 }
